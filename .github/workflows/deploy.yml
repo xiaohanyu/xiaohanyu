@@ -1,0 +1,26 @@
+name: Deploy
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install pandoc
+      run: bash -x .github/scripts/install-pandoc.sh
+    - name: set up ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: install dependencies
+      run: bundle install
+    - name: compile project
+      run: bundle exec nanoc compile
+    - name: push to xiaohanyu.github.io
+      uses: cpina/github-action-push-to-another-repository@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+      with:
+        source-directory: 'output'
+        destination-github-username: 'xiaohanyu'
+        destination-repository-name: 'xiaohanyu.github.io'
+        user-email: xiaohanyu1988@gmail.com
