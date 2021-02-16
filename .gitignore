@@ -9,3 +9,5 @@ tmp
 .sass-cache
 vendor/local
 crash.log
+
+.DS_Store
