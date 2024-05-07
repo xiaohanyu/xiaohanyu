@@ -10,7 +10,7 @@ I am right now working on my first commercial project,
 which is a LaTeX based resume builder that helps people create beautifully typed
 resumes in minutes.
 
-![PPResume Resume Form and Preview](./static/images/ppresume-launch.png)
+![PPResume Resume Form and Preview](./static/images/ppresume-launch.webp)
 
 More about me:
 
